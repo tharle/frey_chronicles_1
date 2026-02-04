@@ -86,10 +86,10 @@ public class PlayerWalk : MonoBehaviour
 
     private void Rotating()
     {
-        if(m_MoveAmt.y != 0) // rotate the camera to follow the view of player
+        if(m_MoveAmt.y != 0 && m_LookAmt.x != 0) // rotate the camera to follow the view of player
         {
             float rotationAmount = m_LookAmt.x * RotateSpeed * Time.deltaTime;
-            // Just rotate in Y 
+            // Only rotate in Y 
             Quaternion deltaRotation = Quaternion.Euler(0f, rotationAmount, 0f);
             m_Rigidbody.MoveRotation(m_Rigidbody.rotation * deltaRotation);
         }
